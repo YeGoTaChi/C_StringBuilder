@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylyoussf <ylyoussf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 22:32:03 by ylyoussf          #+#    #+#             */
-/*   Updated: 2024/03/19 12:54:17 by ylyoussf         ###   ########.fr       */
+/*   Created: 2022/10/09 23:43:16 by ylyoussf          #+#    #+#             */
+/*   Updated: 2022/10/11 20:55:17 by ylyoussf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <stdint.h>
-# include <stdbool.h>
+char	*ft_strdup(const char *s1)
+{
+	int		len;
+	char	*target;
 
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t count, size_t size);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memset(void *s, int c, size_t len);
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
-char	*ft_itoa(int n);
-
-#endif
+	len = ft_strlen(s1);
+	target = malloc(len + 1);
+	if (target)
+	{
+		ft_memcpy(target, s1, len);
+		target[len] = '\0';
+	}
+	return (target);
+}

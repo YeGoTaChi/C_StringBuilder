@@ -6,18 +6,11 @@
 /*   By: ylyoussf <ylyoussf@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:21:59 by ylyoussf          #+#    #+#             */
-/*   Updated: 2023/08/28 10:49:35 by ylyoussf         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:52:48 by ylyoussf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
-
-typedef struct s_stringbuilder {
-	size_t	capacity;
-	size_t	used_len;
-	char	*str;
-}	t_strbuilder;
+#include "stringbuilder.h"
 
 t_strbuilder	*stringbuilder(void)
 {
@@ -87,17 +80,4 @@ void	sb_free(t_strbuilder *sb)
 {
 	free(sb->str);
 	free(sb);
-}
-
-int	main(void)
-{
-	t_strbuilder *sb = stringbuilder();
-
-	sb_append(sb, "Hello, ");
-	printf("[%s] size = %ld\n", sb->str, sb->capacity);
-	sb_append(sb, "World ");
-	printf("[%s] size = %ld\n", sb->str, sb->capacity);
-	sb_append_int(sb, -69);
-	printf("[%s] size = %ld\n", sb->str, sb->capacity);
-	sb_free(sb);
 }
